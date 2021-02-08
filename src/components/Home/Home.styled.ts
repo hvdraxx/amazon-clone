@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   margin: 0 auto;
+  padding-bottom: 50px;
   width: 1500px;
 `
 const Banner = styled.img.attrs(props => ({

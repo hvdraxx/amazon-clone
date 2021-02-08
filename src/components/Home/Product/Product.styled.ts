@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+interface addedProp {
+  readonly added: boolean
+}
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,7 +41,7 @@ const Image = styled.img`
   object-fit: contain;
   margin-bottom: 15px;
 `
-const Button = styled.button`
+const Button = styled.button<addedProp>`
   display: flex;
   align-items: center;
   border: 1px solid;
@@ -57,7 +61,7 @@ const ButtonIcon = styled.div`
   color: white;
   background-color: #2F3841;
 `
-const ButtonText = styled.p`
+const ButtonText = styled.p<addedProp>`
   width: 100%;
   text-align: center;
   color: ${props => props.added ? 'white' : 'black'};

@@ -19,7 +19,7 @@ function Header() {
       <DeliverTo/>
 
       <Search />
-      <Navbar />
+      <Navbar items={{}} user={{}}/>
     </Container>
   )
 }

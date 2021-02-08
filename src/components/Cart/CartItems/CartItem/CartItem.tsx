@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { ReactEventHandler, useEffect, useState } from 'react'
 import { connect } from 'react-redux';
 import {quantityIncrement, quantityDecrement, removeItem, clearItems} from '../../../../redux/actions/cartActions'
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
@@ -16,9 +16,10 @@ import {
   DeleteItem, 
   PriceValue} 
 from './CartItem.styled'
+import { CartItemProps } from '../../../../types';
 
 
-function CartItem({ id, image, title, quantity, price, quantityIncrement, quantityDecrement, removeItem, clearItems}) {
+function CartItem({ id, image, title, quantity, price, quantityIncrement, quantityDecrement, removeItem, clearItems}: CartItemProps) {
 
   const [isDecrementDisable, toggleDecrement] = useState(true)
   const [isIncrementDisable, toggleIncrement] = useState(true)
@@ -34,12 +35,12 @@ function CartItem({ id, image, title, quantity, price, quantityIncrement, quanti
   }, [quantity, isIncrementDisable])
 
 
-  const handleClickDecrement = (event) => {
+  const handleClickDecrement = () => {
     if (quantity === 1) return
     else quantityDecrement(id)
   }
 
-  const handleClickIncrement = (event) => {
+  const handleClickIncrement = () => {
     if (quantity === 10) return
     else quantityIncrement(id)
   }

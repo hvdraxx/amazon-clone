@@ -1,14 +1,15 @@
+import { CartActionsType, CartStateType } from './../../types';
 import { ADD_ITEM, REMOVE_ITEM, CLEAR_ITEMS, QUANTITY_INCREMENT, QUANTITY_DECREMENT } from "../types"
 
-const initialState = {
+const initialState: CartStateType = {
   items: {}
 }
 
-export const cartReducer = (state = initialState, action) => {
+export const cartReducer = (state = initialState, action: CartActionsType): CartStateType => {
   switch(action.type) {
 
     case ADD_ITEM:
-      if(state.items.hasOwnProperty(action.payload.id)) {
+      if(state.items.hasOwnProperty(action.payload!.id)) {
         return state
       }
       else {
@@ -22,7 +23,7 @@ export const cartReducer = (state = initialState, action) => {
       }
 
     case REMOVE_ITEM:
-      const deleteItem = (obj, prop) => {
+      const deleteItem = (obj: any, prop: any) => {
         let {[prop]: omit, ...result} = obj
         return result
       }

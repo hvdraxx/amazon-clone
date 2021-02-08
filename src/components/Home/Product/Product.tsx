@@ -3,8 +3,10 @@ import { connect } from 'react-redux'
 import { Button, Container, Image, Info, Price, Rating, Title, ButtonIcon, ButtonText } from './Product.styled'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { addItem, removeItem } from '../../../redux/actions/cartActions';
+import { ProductProps, mapStateType } from '../../../types';
 
-function Product( {id, title, price, rating, image, items, addItem, removeItem} ) {
+
+function Product({id, title, price, rating, image, items, addItem, removeItem}: ProductProps) {
 
   const item = { title, price, image, quantity: 1}
 
@@ -42,7 +44,7 @@ function Product( {id, title, price, rating, image, items, addItem, removeItem} 
             <ButtonIcon>
              <ShoppingCartIcon style={{ fontSize: 20}}/>
             </ButtonIcon>
-            <ButtonText added>
+            <ButtonText added={false}>
               Add to Cart
             </ButtonText>
           </Button>
@@ -51,9 +53,9 @@ function Product( {id, title, price, rating, image, items, addItem, removeItem} 
   )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: mapStateType) => {
   return {
-    items: state.cart.items
+    items: state.cart!.items
   }
 }
 

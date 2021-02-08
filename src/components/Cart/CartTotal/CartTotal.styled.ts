@@ -2,12 +2,13 @@ import styled from 'styled-components'
 import { Button } from '../../Home/Product/Product.styled'
 
 const Container = styled.div`
+  position: sticky;
+  top: 90px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   min-width: 320px;
-  max-height: 150px;
-  padding: 25px 20px 35px 20px;
+  max-height: 180px;
+  padding: 25px 20px 0 20px;
   background-color: #fff;
 `
 const TotalText = styled.p`
@@ -25,7 +26,20 @@ const Checkbox = styled.input`
 const Proceed = styled(Button)`
   justify-content: center;
   width: 100%;
+  margin-bottom: 16px;
   padding: 8px 0;
 `
+const ClearCart = styled.input`
+  align-self: flex-start;
+  border: none;
+  outline: none;
+  color: #0066C0;
+  background-color: transparent;
 
-export { Container, TotalText, Proceed, ContainerCheckbox, Checkbox }
+  &:hover {
+    color: #C45500;
+    cursor: pointer;
+  }
+`
+
+export { Container, TotalText, Proceed, ContainerCheckbox, Checkbox, ClearCart }

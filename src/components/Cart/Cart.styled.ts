@@ -5,10 +5,8 @@ const Wrapper = styled.div`
 `
 const Container = styled.div`
   display: flex;
-  margin: 0 auto;
   width: 100%;
   min-width: 1500px;
-  height: max-content;
 `
 
 export { Container, Wrapper }

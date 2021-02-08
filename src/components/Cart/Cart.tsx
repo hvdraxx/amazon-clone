@@ -4,8 +4,9 @@ import CartItems from './CartItems/CartItems'
 import CartTotal from './CartTotal/CartTotal'
 import { Container, Wrapper } from './Cart.styled'
 import { connect } from 'react-redux'
+import { CartProps, mapStateType } from '../../types'
 
-function Cart({ items }) {
+function Cart({items}: CartProps) {
 
   const [isEmpty, setIsEmpty] = useState(true)
 
@@ -20,7 +21,7 @@ function Cart({ items }) {
           <EmptyCart />
         :
           <>
-            <CartItems />
+            <CartItems items={{}}/>
             <CartTotal />
           </>
         }
@@ -29,9 +30,9 @@ function Cart({ items }) {
   )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: mapStateType) => {
   return {
-    items: state.cart.items
+    items: state.cart!.items
   }
 }
 

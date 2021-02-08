@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { CartItemsProps, mapStateType } from '../../../types'
 import CartItem from './CartItem/CartItem'
 import {  Container, Title, TitlePrice } from './CartItems.styled'
 
-function CartItems({ items }) {
+function CartItems({ items }: CartItemsProps) {
   const mappedItems = Object.entries(items).map(([key, prop]) => (
       <CartItem 
-        id={key}
+        id={Number.parseInt(key)}
         key={`cartItemKey__${key}`}
         image={prop.image}
         title={prop.title}
@@ -29,9 +30,9 @@ function CartItems({ items }) {
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: mapStateType) => {
   return {
-    items: state.cart.items
+    items: state.cart!.items
   }
 }
 
