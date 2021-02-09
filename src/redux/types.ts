@@ -4,4 +4,4 @@ export const CLEAR_ITEMS        = 'CART/CLEAR_ITEMS'
 export const QUANTITY_INCREMENT = 'CART/QUANTITY_INCREMENT'
 export const QUANTITY_DECREMENT = 'CART/QUANTITY_DECREMENT'
 
-export const SET_USER = 'AUTH/SET_USER'
+export const SET_USER           = 'AUTH/SET_USER'

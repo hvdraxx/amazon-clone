@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 import EmptyCart from './EmptyCart/EmptyCart'
 import CartItems from './CartItems/CartItems'
 import CartTotal from './CartTotal/CartTotal'
-import { Container, Wrapper } from './Cart.styled'
-import { connect } from 'react-redux'
 import { CartProps, mapStateType } from '../../types'
+import { Container, Wrapper } from './Cart.styled'
 
 function Cart({items}: CartProps) {
 

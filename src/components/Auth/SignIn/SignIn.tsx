@@ -13,9 +13,10 @@ function SignIn({ setError }: SignInProps) {
   const [validEmail, setValidEmail] = useState(false)
   const [validPass,  setValidPass]  = useState(false)
   const [validForm,  setValidForm]  = useState(false)
-  const [showError, setShowError]   = useState(false)
+  const [showError,  setShowError]  = useState(false)
 
   useEffect(() => {
+    // Validate Form
     setValidEmail(Boolean(email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)))
     setValidPass(password.length > 5)
 
@@ -32,7 +33,6 @@ function SignIn({ setError }: SignInProps) {
         })
         .catch(error => {
           setError(error.code)
-          console.log(error.code)
         })
     }
   }

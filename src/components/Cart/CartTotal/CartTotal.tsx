@@ -1,16 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Checkbox, Container, ContainerCheckbox, Proceed, TotalText, ClearCart } from './CartTotal.styled'
 import { clearItems } from '../../../redux/actions/cartActions' 
 import { CartTotalProps, mapStateType } from '../../../types';
+import { numberWithCommas } from '../../../utils/utils';
+import { 
+  Checkbox,
+  Container,
+  ContainerCheckbox,
+  Proceed,
+  TotalText,
+  ClearCart } 
+from './CartTotal.styled'
 
 function CartTotal({ items, clearItems }: CartTotalProps) {
 
   let totalPrice = 0;
-  let totalItems = 0;
   Object.entries(items).map(([key, prop]) => (
-    totalPrice += prop.quantity * Number.parseFloat(prop.price)
+    totalPrice += prop.quantity * (prop.price.whole + (Number.parseFloat((0.01 * prop.price.fraction).toFixed(2))))
   ))
+  
+  let totalItems = 0;
   Object.entries(items).map(([key, prop]) => (
     totalItems += prop.quantity
   ))
@@ -19,7 +28,8 @@ function CartTotal({ items, clearItems }: CartTotalProps) {
     <Container>
 
       <TotalText>
-        Subtotal ({totalItems} {totalItems === 1 ? `item` : `items`}):<strong> ${totalPrice.toFixed(2)}</strong>
+        Subtotal ({totalItems} {totalItems === 1 ? `item` : `items`}):
+        <strong> ${numberWithCommas(Number.parseFloat(totalPrice.toFixed(2)))}</strong>
       </TotalText>
 
       <ContainerCheckbox>

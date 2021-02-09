@@ -1,10 +1,13 @@
-import React, { ReactEventHandler, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux';
 import {quantityIncrement, quantityDecrement, removeItem, clearItems} from '../../../../redux/actions/cartActions'
+import { CartItemProps } from '../../../../types';
+import { numberWithCommas } from '../../../../utils/utils';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import {
   Item, 
+  ImageWrapper,
   Image,
   Info, 
   Title,
@@ -14,12 +17,20 @@ import {
   QtyBtn,
   QtyCounter,
   DeleteItem, 
-  PriceValue} 
+  PriceValue
+} 
 from './CartItem.styled'
-import { CartItemProps } from '../../../../types';
 
-
-function CartItem({ id, image, title, quantity, price, quantityIncrement, quantityDecrement, removeItem, clearItems}: CartItemProps) {
+function CartItem({ 
+  id,
+  image,
+  title,
+  quantity,
+  price,
+  quantityIncrement,
+  quantityDecrement,
+  removeItem
+}: CartItemProps) {
 
   const [isDecrementDisable, toggleDecrement] = useState(true)
   const [isIncrementDisable, toggleIncrement] = useState(true)
@@ -27,13 +38,10 @@ function CartItem({ id, image, title, quantity, price, quantityIncrement, quanti
   useEffect(() => {
       if (quantity === 1) toggleDecrement(true)
       else toggleDecrement(false)
-  }, [quantity, isDecrementDisable])
-
-    useEffect(() => {
+      
       if (quantity === 10) toggleIncrement(true)
       else toggleIncrement(false)
-  }, [quantity, isIncrementDisable])
-
+  }, [quantity])
 
   const handleClickDecrement = () => {
     if (quantity === 1) return
@@ -47,8 +55,10 @@ function CartItem({ id, image, title, quantity, price, quantityIncrement, quanti
 
   return (
     <Item>
-      <Image src={image}/>
-
+      <ImageWrapper>
+        <Image src={image}/>
+      </ImageWrapper>
+      
       <Info>
         <Title href='#'>{title}</Title>
 
@@ -81,7 +91,7 @@ function CartItem({ id, image, title, quantity, price, quantityIncrement, quanti
       </Info>
 
       <PriceValue>
-        {`$${price}`}
+        {`$${numberWithCommas(price.whole)}.${price.fraction}`}
       </PriceValue>
 
     </Item>
@@ -91,8 +101,7 @@ function CartItem({ id, image, title, quantity, price, quantityIncrement, quanti
 const mapDispathToProps = {
   quantityIncrement, 
   quantityDecrement, 
-  removeItem, 
-  clearItems
+  removeItem
 }
 
 export default connect(null, mapDispathToProps)(CartItem)

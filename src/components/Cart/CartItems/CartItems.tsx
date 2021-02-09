@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { CartItemsProps, mapStateType } from '../../../types'
 import CartItem from './CartItem/CartItem'
+import { CartItemsProps, mapStateType } from '../../../types'
 import {  Container, Title, TitlePrice } from './CartItems.styled'
 
 function CartItems({ items }: CartItemsProps) {

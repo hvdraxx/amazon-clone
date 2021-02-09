@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const NewToAmazonBlock = styled.div`
+export const NewToAmazonBlock = styled.div`
   position: relative;
   width: 350px;
   margin-bottom: 12px;
@@ -19,7 +19,7 @@ const NewToAmazonBlock = styled.div`
     z-index: 1;
   }
 `
-const NewToAmazonText = styled.p`
+export const NewToAmazonText = styled.p`
   position: relative;
   display: inline-block;
   padding: 0 8px;
@@ -28,7 +28,7 @@ const NewToAmazonText = styled.p`
   background-color: #fff;
   z-index: 2;
 `
-const CreateAccountButton = styled.input`
+export const CreateAccountButton = styled.input`
   width: 350px;
   height: 30px;
   margin-bottom: 24px;
@@ -50,5 +50,3 @@ const CreateAccountButton = styled.input`
     box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%)
   }
 `
-
-export { NewToAmazonBlock, NewToAmazonText, CreateAccountButton }

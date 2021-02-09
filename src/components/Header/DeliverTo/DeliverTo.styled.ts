@@ -3,7 +3,7 @@ import { NavLinks, FirstLine } from '../Navbar/Navbar.styled'
 
 const Container = styled(NavLinks)`
   flex-direction: row;
-  margin-right: 20px;
+  margin: 0 18px;
   padding-left: 2px;
 `
 const IconContainer = styled.div`

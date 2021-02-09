@@ -11,8 +11,15 @@ export type UserType = {
 export type ItemType = {
   [key: number]: {
       title: string
-      price: string
       image: string
+      price: {
+        whole: number
+        fraction: number
+      }
+      rating: {
+        stars: number
+        quantity: number
+      }
       quantity: number
   }
 }
@@ -29,8 +36,14 @@ export interface AppProps {
 export interface ProductProps {
   id: number
   title: string
-  price: string
-  rating: number
+  price: {
+    whole: number
+    fraction: number
+  }
+  rating: {
+    stars: number
+    quantity: number
+  }
   image: string
   items: ItemType
   addItem(id: number, item: ItemType): void
@@ -38,8 +51,8 @@ export interface ProductProps {
 }
 
 export interface NavbarProps {
-  items: ItemType
-  user: UserType
+  items?: ItemType
+  user?: UserType
 }
 
 export interface CartProps {
@@ -60,11 +73,13 @@ export interface CartItemProps {
   image: string
   title: string
   quantity: number
-  price: string
+  price: {
+    whole: number
+    fraction: number
+  }
   quantityIncrement(id: number): void
   quantityDecrement(id: number): void
   removeItem(id: number): void
-  clearItems(): void
 }
 
 export interface SignUpProps {
@@ -88,11 +103,11 @@ export interface AgreeProps {
 }
 
 // // // // // // // // // // // // // // //
-//                  REDUX                 //
+//                 REDUX                  //
 // // // // // // // // // // // // // // // 
 
 // // // // // // // // // // // // // // //
-//                 ACTIONS                //
+//                ACTIONS                 //
 // // // // // // // // // // // // // // //
 
 export type UserActionType = {
@@ -139,7 +154,14 @@ export type CartStateType = {
   items: {
     [key: number]: {
       title: string
-      price: string
+      price: {
+        whole: number
+        fraction: number
+      }
+      rating: {
+        stars: number
+        quantity: number
+      }
       image: string
       quantity: number
     }

@@ -1,20 +1,24 @@
 import styled from 'styled-components'
 
-const Item = styled.li`
+export const Item = styled.li`
   display: flex;
   padding: 12px 0;
   border-bottom: 1px solid lightgray;
 `
-const Image = styled.img`
+export const ImageWrapper = styled.div`
   height: 180px;
   width: 180px;
   margin-right: 15px;
+`
+export const Image = styled.img`
+  height: 180px;
+  width: 180px;
   object-fit: contain;
 `
-const Info = styled.div`
+export const Info = styled.div`
   width: 100%;
 `
-const Title = styled.a`
+export const Title = styled.a`
   display: block;
   margin-bottom: 5px;
   max-width: 1060px;
@@ -22,19 +26,20 @@ const Title = styled.a`
   font-weight: bold;
   line-height: 1.3;
   color: #007185;
+  cursor: not-allowed;
 
   &:hover {
     color: #C7511F;
     text-decoration: underline;
   }
 `
-const Stock = styled.p`
+export const Stock = styled.p`
   margin-bottom: 5px;
   font-size: 12px;
   line-height: 1.5;
   color: #007600;
 `
-const Gift = styled.p`
+export const Gift = styled.p`
   display: flex;
   align-items: center;
   margin-bottom: 5px;
@@ -45,11 +50,11 @@ const Gift = styled.p`
     margin-right: 5px;
   }
 `
-const Qty = styled.div`
+export const Qty = styled.div`
   display: flex;
   align-items: center;
 `
-const QtyBtn = styled.button`
+export const QtyBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,10 +77,10 @@ const QtyBtn = styled.button`
     cursor: not-allowed;
   }
 `
-const QtyCounter = styled.span`
+export const QtyCounter = styled.span`
   user-select: none;
 `
-const DeleteItem = styled.button`
+export const DeleteItem = styled.button`
   margin-left: 5px;
   padding: 0 10px;
   border: none;
@@ -91,9 +96,7 @@ const DeleteItem = styled.button`
     text-decoration: underline;
   }
 `
-const PriceValue = styled.p`
+export const PriceValue = styled.p`
   font-size: 18px;
   font-weight: bold;
 `
-
-export { Item, Image, Info, Title, Stock, Gift, Qty, QtyBtn, QtyCounter, DeleteItem, PriceValue}

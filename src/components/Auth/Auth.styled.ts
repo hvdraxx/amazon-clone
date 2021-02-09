@@ -4,11 +4,11 @@ interface errorProp {
   error: boolean
 }
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   height: 100vh;
   background-color: #FDFDFD;
 `
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +24,7 @@ const Container = styled.div`
     outline: none;
   }
 `
-const Content = styled.div`
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,29 +39,29 @@ const Content = styled.div`
     user-select: none;
   }
 `
-const LogoWrapper = styled.div`
+export const LogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
   margin-bottom: 18px;
 `
-const Logo = styled.img`
+export const Logo = styled.img`
   width: 105px;
 `
-const Form = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   padding: 20px 26px 0 26px;
 `
-const AccountForm = styled(Form)`
+export const AccountForm = styled(Form)`
   padding: 14px 18px 0 18px;
 `
-const Title = styled.h1`
+export const Title = styled.h1`
   font-weight: normal;
   margin-bottom: 14px;
   font-size: 28px;
 `
-const Input = styled.input<errorProp>`
+export const Input = styled.input<errorProp>`
   height: 32px;
   margin-bottom: ${props => props.error ? '6px' : '10px'};
   padding: 3px 7px;
@@ -81,19 +81,19 @@ const Input = styled.input<errorProp>`
     font-family: 'Roboto', sans-serif;
   }
 `
-const AccountInput = styled(Input)`
+export const AccountInput = styled(Input)`
   margin-bottom: ${props => props.error ? '6px' : '10px'};
 
   &:nth-last-of-type(2) {
     margin-bottom: 6px;
   }
 `
-const Label = styled.label`
+export const Label = styled.label`
   margin-bottom: 4px;
   font-size: 13px;
   font-weight: bold;
 `
-const ErrorLabel = styled(Label)`
+export const ErrorLabel = styled(Label)`
   margin-bottom: 8px;
   padding-left: 18px;
   font-weight: nornal;
@@ -103,7 +103,7 @@ const ErrorLabel = styled(Label)`
   background-size: contain;
   background-repeat: no-repeat;
 `
-const FormButton = styled.input`
+export const FormButton = styled.input`
   height: 30px;
   margin-top: 8px;
   border: 1px solid gray;
@@ -122,23 +122,23 @@ const FormButton = styled.input`
     box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%)
   }
 `
-const AccoutFormButton = styled(FormButton)`
+export const AccoutFormButton = styled(FormButton)`
   margin-bottom: 0;
 `
-const ContainerShadow = styled.div`
+export const ContainerShadow = styled.div`
   width: 100%;
   height: 5px;
   background: radial-gradient(at 50% 0, #CCCCCC, transparent 60%);
 `
-const AccountShadow = styled(ContainerShadow)`
+export const AccountShadow = styled(ContainerShadow)`
   margin: 0 14px;
 `
-const HaveAccount = styled.p`
+export const HaveAccount = styled.p`
   margin: 14px 0;
   padding: 0 18px;
   font-size: 13px;
 `
-const SignInButton = styled.input`
+export const SignInButton = styled.input`
   margin-left: 4px;
   border: none;
   outline: none;
@@ -158,24 +158,3 @@ const SignInButton = styled.input`
   }
 
 `
-
-export { 
-  Wrapper,
-  Container,
-  Content,
-  LogoWrapper,
-  Logo,
-  Form,
-  AccountForm,
-  Title,
-  Input,
-  AccountInput,
-  Label,
-  ErrorLabel,
-  FormButton,
-  AccoutFormButton,
-  ContainerShadow,
-  AccountShadow,
-  HaveAccount,
-  SignInButton
-}

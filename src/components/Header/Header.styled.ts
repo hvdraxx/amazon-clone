@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Container = styled.header`
+export const Container = styled.header`
   position: sticky;
   top: 0;
   display: flex;
@@ -8,14 +8,14 @@ const Container = styled.header`
   width: 100%;
   min-width: 1500px;
   height: 60px;
+  padding: 0 18px;
   background-color: #131921;
   z-index: 99;
 `
-const Logo = styled.div`
+export const Logo = styled.div`
   width: 113px;
   height: 50px;
-  margin: 0 0 0 18px;
-  padding: 10px 8px 0 8px;
+  padding: 10px 7px 0 7px;
   border: 1px solid transparent;
   border-radius: 2px;
 
@@ -23,9 +23,6 @@ const Logo = styled.div`
     border: 1px solid white;
   }
 `
-const LogoImg = styled.img`
+export const LogoImg = styled.img`
   width: 100%;
-  object-fit: contain;
 `
-
-export {Container, Logo, LogoImg}

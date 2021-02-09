@@ -4,44 +4,75 @@ interface addedProp {
   readonly added: boolean
 }
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: space-between;
   margin: 10px;
-  padding: 20px;
+  padding: 30px 20px 20px 20px;
   width: 100%;
-  min-width: 100px;
-  max-height: 400px;
+  height: auto;
   background-color: #fff;
   z-index: 1;
-`
-const Info = styled.div`
-  width: 100%;
-  height: 100px;
-  margin-bottom: 15px;
-`
-const Title = styled.p``
-const Price = styled.p`
-  margin-top: 5px;
+  transition: all 0.3s;
 
-  & small {
-    margin-right: 2px;
-  }
-
-  & strong {
-    color: #B12704;
+  &:hover {
+    box-shadow: 0 0 10px 0 rgba(122, 122, 122, 0.6);
   }
 `
-const Rating = styled.div``
-const Image = styled.img`
+export const Image = styled.img`
   max-height: 200px;
   width: 100%;
   object-fit: contain;
+  margin-bottom: 5px;
+`
+export const Info = styled.div`
+  width: 100%;
   margin-bottom: 15px;
 `
-const Button = styled.button<addedProp>`
+export const Title = styled.h3`
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: normal;
+`
+export const Rating = styled.div`
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 12px;
+`
+export const RatingStars = styled.span`
+  font-size: 11px;
+`
+export const RatingQuantity = styled.span`
+  margin-left: 4px;
+  font-size: 14px;
+  line-height: 0.85;
+  color: #007185;
+`
+export const Price = styled.p`
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+`
+export const PriceSmall = styled.span`
+  margin: 0 1px;
+  font-size: 12px;
+  color: #0f1111;
+
+  &:first-of-type {
+    line-height: 1.3;
+  }
+`
+export const PriceLarge = styled.span`
+  font-size: 21px;
+  line-height: 0.85;
+  color: #0f1111;
+`
+export const ShipsTo = styled.p`
+  font-size: 12px;
+  color: #565959;
+`
+export const Button = styled.button<addedProp>`
   display: flex;
   align-items: center;
   border: 1px solid;
@@ -50,21 +81,19 @@ const Button = styled.button<addedProp>`
   outline: none;
   margin-top: 10px;
   padding: 2px;
-  width: 200px;
+  width: 100%;
   background-color: ${props => props.added ? '#2F3841' : '#F0C14B'};
   color: #111;
   cursor: pointer;
 `
-const ButtonIcon = styled.div`
+export const ButtonIcon = styled.div`
   padding: 3px 2px 0 2px;
   border-radius: 2px;
   color: white;
   background-color: #2F3841;
 `
-const ButtonText = styled.p<addedProp>`
+export const ButtonText = styled.p<addedProp>`
   width: 100%;
   text-align: center;
   color: ${props => props.added ? 'white' : 'black'};
 `
-
-export { Container, Info, Title, Price, Rating, Image, Button, ButtonIcon, ButtonText}

@@ -6,21 +6,22 @@ import { AccountForm, Title, Label, ErrorLabel, AccountInput, AccoutFormButton} 
 
 function SignUp({ setError }: SignUpProps) {
   const history = useHistory()
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+
+  const [name,       setName]       = useState('')
+  const [email,      setEmail]      = useState('')
+  const [password,   setPassword]   = useState('')
   const [rePassword, setRePassword] = useState('')
   
-  const [validName,  setValidName]   = useState(false)
-  const [validEmail, setValidEmail]  = useState(false)
-  const [validPassLength,  setValidPassLength] = useState(false)
-  const [validPassMatch,  setValidPassMatch]   = useState(false)
-  const [validForm,  setValidForm]   = useState(false)
-  const [showError,  setShowError]   = useState(false)
+  const [validName,       setValidName]       = useState(false)
+  const [validEmail,      setValidEmail]      = useState(false)
+  const [validPassLength, setValidPassLength] = useState(false)
+  const [validPassMatch,  setValidPassMatch]  = useState(false)
+  const [validForm,       setValidForm]       = useState(false)
 
-  
+  const [showError, setShowError] = useState(false)
 
   useEffect(() => {
+    // Validate Form
     setValidName(name.length > 2)
     setValidEmail(Boolean(email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)))
     if (password.length > 5) setValidPassLength(true)
@@ -36,11 +37,11 @@ function SignUp({ setError }: SignUpProps) {
 
     else {
       auth.createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        history.push('/')
-        return auth.user!.updateProfile({
+      .then(async (auth) => {
+        await auth.user!.updateProfile({
           displayName: name
         })
+        history.push('/')
       })
       .catch(error => {
           setError(error.code)

@@ -28,6 +28,7 @@ const Proceed = styled(Button)`
   width: 100%;
   margin-bottom: 16px;
   padding: 8px 0;
+  cursor: not-allowed;
 `
 const ClearCart = styled.input`
   align-self: flex-start;

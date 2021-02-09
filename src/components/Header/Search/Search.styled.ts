@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-const Container = styled.form`
+export const Container = styled.form`
   display: flex;
   flex: 1;
   align-items: center;
 `
-const Input = styled.input`
+export const Input = styled.input`
   width: 100%;
   height: 38px;
   padding: 7px 10px;
@@ -13,8 +13,10 @@ const Input = styled.input`
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   outline: none;
+  background-color: #fff;
+  cursor: not-allowed;
 `
-const Button = styled.button`
+export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,11 +28,5 @@ const Button = styled.button`
   border-bottom-right-radius: 4px;
   outline: none;
   background-color: #febd69;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #f3a847;
-  }
+  cursor: not-allowed;
 `
-
-export {Container, Input, Button}

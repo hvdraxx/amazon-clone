@@ -4,8 +4,18 @@ import SignIn from './SignIn/SignIn'
 import Agree from './Agree/Agree'
 import NewToAmazon from './NewToAmazon/NewToAmazon'
 import SignUp from './SignUp/SignUp'
-import { Wrapper, Container, Content, LogoWrapper, Logo, ContainerShadow, AccountShadow, HaveAccount, SignInButton } from './Auth.styled'
 import Error from './Error/Error'
+import { 
+  Wrapper,
+  Container,
+  Content,
+  LogoWrapper,
+  Logo,
+  ContainerShadow,
+  AccountShadow,
+  HaveAccount,
+  SignInButton 
+} from './Auth.styled'
 
 function Auth() {
   let location = useLocation()
@@ -33,15 +43,16 @@ function Auth() {
           }
 
         <Content>
-
           {
             location.pathname === '/auth/signin' ?
-              <React.Fragment>
+              // Show Sign In form
+              <>
                 <SignIn setError={setError}/>
                 <Agree path={'signin'}/>
-              </React.Fragment>
-            :
-              <React.Fragment>
+              </>
+            : 
+              // Show Sign Up form
+              <>
                 <SignUp setError={setError}/>
                 <Agree path={'signup'}/>
                 <AccountShadow />
@@ -57,9 +68,8 @@ function Auth() {
                   </Link>
                 </HaveAccount>
                 
-              </React.Fragment>
+              </>
           }
-
         </Content>
 
           {

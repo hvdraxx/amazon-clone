@@ -6,10 +6,12 @@ import { Container, IconContainer, TextContainer, FirstLineGray } from './Delive
 
 function DeliverTo() {
   return (
-    <Container>
+    <Container notAllowed>
+
       <IconContainer>
         <LocationOnOutlinedIcon />
       </IconContainer>
+
       <TextContainer>
         <FirstLineGray>
           Deliver to
@@ -18,6 +20,7 @@ function DeliverTo() {
           Russian Federation
         </SecondLine>
       </TextContainer>
+      
     </Container>
   )
 }

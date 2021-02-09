@@ -1,13 +1,14 @@
 import React from 'react'
-import { Container, Logo, LogoImg } from './Header.styled'
+import { Link } from 'react-router-dom'
 import Search from './Search/Search'
 import Navbar from './Navbar/Navbar'
 import DeliverTo from './DeliverTo/DeliverTo'
-import { Link } from 'react-router-dom'
+import { Container, Logo, LogoImg } from './Header.styled'
 
 function Header() {
   return (
     <Container>
+
       <Link to='/'>
         <Logo>
           <LogoImg 
@@ -16,10 +17,12 @@ function Header() {
         </Logo>
       </Link>
 
-      <DeliverTo/>
+      <DeliverTo />
 
       <Search />
-      <Navbar items={{}} user={{}}/>
+      
+      <Navbar />
+
     </Container>
   )
 }

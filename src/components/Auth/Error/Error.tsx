@@ -1,7 +1,7 @@
 import React from 'react'
-import { Container, Icon, Heading, Text } from './Error.styled'
-import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined';
 import { ErrorProps } from '../../../types';
+import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined';
+import { Container, Icon, Heading, Text } from './Error.styled'
 
 function Error({error}: ErrorProps) {
 
